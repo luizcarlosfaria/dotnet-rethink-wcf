@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DBA00286-09D5-4874-9109-EC0F1692F5E2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>WcfClientConsole</RootNamespace>
-    <AssemblyName>WcfClientConsole</AssemblyName>
+    <ProjectGuid>{FEBBB25E-AB33-4330-B1B9-CAFB2EB933B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyServiceApp</RootNamespace>
+    <AssemblyName>MyServiceApp.ServiceContracts</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,7 +24,6 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,24 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Services\ITimeCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyServiceApp.ServiceContracts\MyServiceApp.ServiceContracts.csproj">
-      <Project>{febbb25e-ab33-4330-b1b9-cafb2eb933b5}</Project>
-      <Name>MyServiceApp.ServiceContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyServiceApp.ServicesImplementations\MyServiceApp.ServicesImplementations.csproj">
-      <Project>{fc9810fc-71e7-4813-936d-7a44ca792b12}</Project>
-      <Name>MyServiceApp.ServicesImplementations</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
