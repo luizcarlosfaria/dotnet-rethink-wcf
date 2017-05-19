@@ -35,3 +35,7 @@ Um exemplo de Consumo dos Serviços
 1. O fato dos consumidores dos serviços não saberem distinguir entre o que é WCF e o que não é, aumenta a flexibilidade sob as decisões de tornar ou não um serviço qualquer embarcado ou WCF. Ficaria a critério da configuração da aplicação, container IoC/DI.
 
 1. A hospedagem utilizando um Console Application é interessante, no entanto a utilização de serviços windows é melhor. Vale a pena olhar para o projeto [TopShelf](http://topshelf-project.com/) para saber mais sobre como trabalhar com serviços windows de uma forma mais organizada.
+
+1. Este exemplo está usando o post-build (Build Events) para copiar o binário que contém a implementação real,, para que facilmente possamos substituir implementação real de implementação com WCF, de forma transparente.
+
+1. Para consumir a implementação real, sem ferir a arquitetura, não há referência para o binário, apenas sua cópia para a pasta de binários, onde o AppDomain tentará fazer o load dos assemblies.

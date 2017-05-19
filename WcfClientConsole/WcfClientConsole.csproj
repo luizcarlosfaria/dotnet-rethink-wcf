@@ -65,4 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(SolutionDir)MyServiceApp.ServicesImplementations\$(OutDir)*.dll" "$(TargetDir)" /y /q 
+xcopy "$(SolutionDir)MyServiceApp.ServicesImplementations\$(OutDir)*.config" "$(TargetDir)"  /y /q</PostBuildEvent>
+  </PropertyGroup>
 </Project>

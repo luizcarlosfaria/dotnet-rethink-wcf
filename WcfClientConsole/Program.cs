@@ -23,15 +23,18 @@ namespace WcfClientConsole
 			Log("Criando clientes NET TCP e HTTP");
 			ITimeCalculator[] timeCalculators = new ITimeCalculator[] {
 				new ChannelFactory<ITimeCalculator>("tcp").CreateChannel() ,
-				new ChannelFactory<ITimeCalculator>("http").CreateChannel()
+				new ChannelFactory<ITimeCalculator>("http").CreateChannel(),
+				(ITimeCalculator)Activator.CreateInstance(Type.GetType("MyServiceApp.Services.TimeCalculatorService, MyServiceApp.ServicesImplementations",true, false))
 			};
 
+			
 			Log("Consumindo...");
 			foreach (var timeCalculator in timeCalculators)
 			{
 				int seconds = timeCalculator.HoursToMinutes(12);
 				Log($"Teste 120 > ${seconds}", ConsoleColor.Red);
-				((ICommunicationObject)timeCalculator).Close();
+				if(timeCalculator is ICommunicationObject)
+					((ICommunicationObject)timeCalculator).Close();
 			}
 			Log("Finalizado, pressione qualquer tecla para encerrar o processo.");
 			Console.ReadKey();
